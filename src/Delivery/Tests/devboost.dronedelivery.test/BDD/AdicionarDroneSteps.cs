@@ -1,4 +1,5 @@
 ﻿using devboost.dronedelivery.core.domain.Entities;
+using devboost.dronedelivery.core.domain.Interfaces;
 using devboost.dronedelivery.domain.Entities;
 using devboost.dronedelivery.domain.Interfaces;
 using devboost.dronedelivery.domain.Interfaces.Repositories;
@@ -23,7 +24,7 @@ namespace devboost.dronedelivery.test.BDD
         private readonly DataContext _context;
         private readonly ICommandExecutor<DroneStatusResult> _droneStatusExecutor;
         private readonly ICommandExecutor<StatusDroneDto> _statusDroneExecutor;
-
+        private readonly IPedidoMongoRepository _pedidoMongoRepository;
 
         public AdicionarDroneSteps(ScenarioContext scenarioContext)
         {
@@ -31,7 +32,8 @@ namespace devboost.dronedelivery.test.BDD
             _context = ContextProvider<Drone>.GetContext(null);
             _droneStatusExecutor = Substitute.For<ICommandExecutor<DroneStatusResult>>();
             _statusDroneExecutor = Substitute.For<ICommandExecutor<StatusDroneDto>>();
-            _droneRepository = new DroneRepository(_context, _statusDroneExecutor, _droneStatusExecutor);
+            _pedidoMongoRepository = Substitute.For<IPedidoMongoRepository>();
+            _droneRepository = new DroneRepository(_context, _statusDroneExecutor, _droneStatusExecutor, _pedidoMongoRepository);
             _droneService = null;
             _droneFacade = new DroneFacade(_droneService, _droneRepository);
         }

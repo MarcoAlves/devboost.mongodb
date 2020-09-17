@@ -42,10 +42,9 @@
              <returns>O novo cliente</returns>
         </member>
         <member name="T:devboost.dronedelivery.Api.Controllers.DronesController">
-             <summary>
-             Controller com ações referentes aos drones
-             </summary>
-            [Authorize("Bearer")]
+            <summary>
+            Controller com ações referentes aos drones
+            </summary>
         </member>
         <member name="M:devboost.dronedelivery.Api.Controllers.DronesController.#ctor(devboost.dronedelivery.domain.Interfaces.IDroneFacade)">
             <summary>

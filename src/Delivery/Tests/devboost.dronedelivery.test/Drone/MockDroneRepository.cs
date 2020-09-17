@@ -25,7 +25,7 @@ namespace devboost.dronedelivery.test
                 Latitude = -23.5880684,
                 Longitude = -46.6564195,
                 Situacao = true,
-                PedidoId = 0,
+                PedidoId = "0",
                 Nome = string.Empty
             };
 
@@ -38,7 +38,7 @@ namespace devboost.dronedelivery.test
                 Latitude = -23.5880684,
                 Longitude = -46.6564195,
                 Situacao = false,
-                PedidoId = 1,
+                PedidoId = "1",
                 Nome = "João da Silva"
             };
 

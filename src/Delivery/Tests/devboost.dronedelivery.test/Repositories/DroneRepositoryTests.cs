@@ -1,4 +1,5 @@
 ﻿using devboost.dronedelivery.core.domain.Entities;
+using devboost.dronedelivery.core.domain.Interfaces;
 using devboost.dronedelivery.domain.Entities;
 using devboost.dronedelivery.domain.Interfaces;
 using devboost.dronedelivery.felipe.EF.Repositories;
@@ -16,14 +17,15 @@ namespace devboost.dronedelivery.test.Repositories
         private readonly DroneRepository _droneRepository;
         private readonly ICommandExecutor<DroneStatusResult> _droneStatusExecutor;
         private readonly ICommandExecutor<StatusDroneDto> _statusDroneExecutor;
-
+        private readonly IPedidoMongoRepository _pedidoMongoRepository;
 
         public DroneRepositoryTests()
         {
             _context = ContextProvider<Drone>.GetContext(SetupTests.GetDrones(1));
             _droneStatusExecutor = new CommandExecutorTest<DroneStatusResult>();
             _statusDroneExecutor = Substitute.For<ICommandExecutor<StatusDroneDto>>();
-            _droneRepository = new DroneRepository(_context, _statusDroneExecutor, _droneStatusExecutor);
+            _pedidoMongoRepository = Substitute.For<IPedidoMongoRepository>();
+            _droneRepository = new DroneRepository(_context, _statusDroneExecutor, _droneStatusExecutor, _pedidoMongoRepository);
         }
 
         [Fact]

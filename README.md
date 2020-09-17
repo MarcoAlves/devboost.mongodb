@@ -1,6 +1,3 @@
-# devboost.dronedelivery.kafka
-Grupo 4 - Projeto Itaú (Kafka)
-
 ## Tecnologias:
 
 - ASP.NET Core 3.1
